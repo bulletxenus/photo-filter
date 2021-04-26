@@ -28,26 +28,32 @@ module.exports = {
                 use: "babel-loader",
             },
             {
-                test: /\.(css|sass)$/,
-                use: ["style-loader", "css-loader", "sass-loader", {
-                    loader: "postcss-loader",
-                    options: {
-                        postcssOptions: {
-                            plugins: [
-                                [
-                                    "autoprefixer",
+                test: /\.sass$/,
+                use: ["style-loader", "css-loader",
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    [
+                                        "autoprefixer",
+                                    ]
                                 ]
-                            ]
+                            }
                         }
-                    }
-                }],
+                    },
+                    "sass-loader"],
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             },
             {
                 test: /\.png$/,
-                type: "asset/resouce",
-                generator: {
+                type: "asset/inline",
+                /*generator: {
                     filename: "assets/[name][ext]",
-                }
+                }*/
             },
             {
                 test: /\.svg$/,
@@ -58,7 +64,7 @@ module.exports = {
     },
 
     devServer: {
-        contentBase: path.resolve(__dirname, 'dist/'),
+        contentBase: 'dist/',
         port: 8080,
         hot: true,
         open: true,

@@ -4,4 +4,5 @@
 # npm
 /node_modules/
 
-/photo-filter/node_modules/
+photo-filter/node_modules/
+
