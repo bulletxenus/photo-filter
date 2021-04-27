@@ -16,6 +16,7 @@ import DownloadObserver from './Buttons/DownloadObserver'
 import NextObserver from './Buttons/NextObserver'
 import rsLogo from '../assets/rs_school.png';
 import Clock from './Clock'
+import FullScreen from './FullScreen'
 
 class PhotoFilterApp {
     constructor() {
@@ -36,6 +37,7 @@ class PhotoFilterApp {
         const headerTitle = createHtml('h1', 'header__title', this.header);
         headerTitle.innerText = 'Photo-filter';
         const headerClock = new Clock(this.header)
+        const fs = new FullScreen(this.header)
     }
 
     createMain() {
