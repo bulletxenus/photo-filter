@@ -9,8 +9,13 @@ export default class LoadButton extends Button {
     }
 
     createButton(parent) {
-        this.button = createHTML('input', 'load-button', parent, '', 'type, file', 'id, loaded-picture');
+        const buttonContainer = createHTML('div', 'button', parent);
+        this.button = createHTML('input', 'button', buttonContainer, '', 'type, file', 'id, loaded-picture');
+        const label = createHTML('label', 'load-button-label', buttonContainer, '', 'for, loaded-picture')
+        this.button.classList.add('load-button');
         this.button.setAttribute('accept', '.jpg, .png');
+
+        label.innerText = 'Load picture'
 
         this.button.onchange = (e) => {
             const img = new Image();
