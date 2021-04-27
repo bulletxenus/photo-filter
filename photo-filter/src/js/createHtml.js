@@ -4,8 +4,9 @@ export default function createHtml(tagName, className, parent, src, ...attribute
         tag.classList.add(el)
     });
     parent.append(tag);
-    if (tag === 'a') tag.href = src;
-    if (tag === 'img') tag.src = src;
+    if (tagName === 'a') tag.href = src;
+    if (tagName == 'img') tag.src = src;
+
     attributes.forEach(el => {
         const string = el.split(', ');
         tag.setAttribute(string[0], string[1]);

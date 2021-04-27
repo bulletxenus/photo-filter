@@ -20,7 +20,6 @@ export default class Ranger {
         this.inputRange.addEventListener('input', changeRange.bind(this));
 
         function changeRange(e) {
-            console.log(this.ed)
             this.value = Math.round(e.target.value);
             this.output.innerHTML = `${this.value}${this.numeric}`;
             this.observer.changeFilters(name, this.value, this.ed)

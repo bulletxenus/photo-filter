@@ -57,7 +57,7 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                type: "assets/inline",
+                type: "assets/sourse",
             }
 
         ]

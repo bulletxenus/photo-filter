@@ -15,7 +15,6 @@ export default class Photo {
         this.canvas = createHtml('canvas', 'photo-canvas', parent);
         this.photo = new Image();
         this.photo.src = './assets/space.jpg'
-        console.log(this.photo.src)
         this.photo.crossOrigin = 'anonymous';
 
         this.photo.onload = () => {
@@ -31,8 +30,6 @@ export default class Photo {
         setTimeout(() => {
             this.canvas.width = this.photo.width;
             this.canvas.height = this.photo.height;
-            //console.log(string);
-            //this.ctx = this.canvas.getContext('2d');
             this.ctx.filter = string;
             this.ctx.drawImage(this.photo, 0, 0);
         });
@@ -50,7 +47,6 @@ export default class Photo {
         if (nowDate >= 6 && nowDate < 12) this.basicUrl += `morning/${this.randomNum}.jpg`;
         if (nowDate >= 12 && nowDate < 18) this.basicUrl += `day/${this.randomNum}.jpg`;
         if (nowDate >= 18 && nowDate <= 23) this.basicUrl += `evening/${this.randomNum}.jpg`;
-        console.log(this.basicUrl)
         return this.basicUrl;
     }
 

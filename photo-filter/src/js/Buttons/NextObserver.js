@@ -14,13 +14,11 @@ export default class NextObserver extends LoadObserver {
 
     setCanvasPicture() {
         let photoLink = this.observers[0].photo.src;
-        console.log(this.observers[0].isLoad);
 
         if (this.observers[0].isLoad) {
             this.observers[0].isLoad = false;
-            console.log(this.observers[0].prevPhoto)
-            console.log(this.observers[0].photo.src)
-            photoLink = this.observers[0].prevPhoto || this.observers[0].getPhoto()
+            photoLink = this.observers[0].prevPhoto
+                || this.observers[0].getPhoto()
         }
 
         const newPictureNum = this.getNextPictureLink(photoLink.match(/\d{2,}(.jpg)$/gi, `${newPictureNum}.jpg`)[0].slice(0,2));
@@ -32,10 +30,8 @@ export default class NextObserver extends LoadObserver {
     }
 
     getNextPictureLink(num) {
-        console.log(`!${num}`)
         num = +num
         num += 1;
-        console.log(num)
         if (num < 10) {
             return `0${num}`;
         }

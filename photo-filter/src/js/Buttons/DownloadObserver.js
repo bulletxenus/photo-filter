@@ -11,7 +11,6 @@ export default class DownloadObserver  {
     }
 
     download() {
-        console.log(this.observers[0].canvas)
         const img = this.observers[0].canvas.toDataURL();
         const link = document.createElement('a');
         link.download = 'image.png';

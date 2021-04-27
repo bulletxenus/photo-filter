@@ -14,6 +14,8 @@ import ResetObserver from './Buttons/ResetObserver'
 import LoadObserver from './Buttons/LoadObserver'
 import DownloadObserver from './Buttons/DownloadObserver'
 import NextObserver from './Buttons/NextObserver'
+import rsLogo from '../assets/rs_school.png';
+import Clock from './Clock'
 
 class PhotoFilterApp {
     constructor() {
@@ -21,6 +23,7 @@ class PhotoFilterApp {
         this.createBasicStructure();
         this.createHeader();
         this.createMain();
+        this.createFooter();
     }
 
     createBasicStructure() {
@@ -32,6 +35,7 @@ class PhotoFilterApp {
     createHeader() {
         const headerTitle = createHtml('h1', 'header__title', this.header);
         headerTitle.innerText = 'Photo-filter';
+        const headerClock = new Clock(this.header)
     }
 
     createMain() {
@@ -42,8 +46,10 @@ class PhotoFilterApp {
     }
 
     createFooter() {
-        const gitHubLink = createHtml('a', 'footer__github-link', this.footer, 'https://github.com');
-        const schoolLogo = createHtml('a', 'footer__school-logo', this.footer, 'https://rsschool.com');
+        const gitHubLink = createHtml('a', 'footer__github-link', this.footer, 'https://github.com/bulletxenus');
+        const gitHubImage = createHtml('img', 'footer__gitHub-image', gitHubLink, './assets/gitHub.png');
+        const schoolLogo = createHtml('a', 'footer__school-logo', this.footer, 'https://rs.school/index.html');
+        const schoolLogoImage = createHtml('img', 'footer__logo-image', schoolLogo, rsLogo);
     }
 
     createFiltersBlock(parent) {
