@@ -17,8 +17,7 @@ export default class NextObserver extends LoadObserver {
 
         if (this.observers[0].isLoad) {
             this.observers[0].isLoad = false;
-            photoLink = this.observers[0].prevPhoto
-                || this.observers[0].getPhoto()
+            photoLink = this.observers[0].getPhoto()
         }
 
         const newPictureNum = this.getNextPictureLink(photoLink.match(/\d{2,}(.jpg)$/gi, `${newPictureNum}.jpg`)[0].slice(0,2));

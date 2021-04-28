@@ -55,8 +55,10 @@
         cursor: pointer
         border-radius: 30px
         position: relative
+        transition: all ease-in-out 0.3s
         @media screen and (max-width: 1300px)
           height: 15px
+
 
       input[type=range]::-webkit-slider-thumb::before
         content: ''
@@ -66,6 +68,16 @@
         width: 10px
         height: 10px
         border-top: 2px solid white
+
+
+      input[type=range]::-webkit-slider-thumb:hover
+        width: 60px
+        height: 25px
+        background: radial-gradient(circle, rgba(64,0,255,1) 30%, rgb(200, 0, 255) 100%)
+        transition: .5s
+
+
+
 
       .range-output
         position: absolute
@@ -114,13 +126,14 @@
       display: flex
       justify-content: center
       align-items: center
-      background: #313163
+      background: transparent
       justify-self: self-end
 
       .photo-canvas
         width: auto
         max-width: 900px
         max-height: 665px
+        min-width: 650px
 
 
 

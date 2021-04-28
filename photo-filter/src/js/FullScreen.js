@@ -17,17 +17,24 @@ export default class FullScreen {
     openClose() {
         this.button.addEventListener('click', () => {
             if (this.button.classList.contains('close')) {
+                document.exitFullscreen();
+            } else if (this.button.classList.contains('open')) {
+                document.documentElement.requestFullscreen()
+            }
+            });
+
+        document.onfullscreenchange = () => {
+            if (this.button.classList.contains('close')) {
                 this.button.classList.remove('close');
                 this.button.classList.add('open')
                 this.button.src = fsopen;
-                document.exitFullscreen();
             } else if (this.button.classList.contains('open')) {
                 this.button.classList.remove('open');
                 this.button.classList.add('close');
                 this.button.src = fsclose;
-                document.documentElement.requestFullscreen()
+
             }
-        })
+        }
     }
 
 }

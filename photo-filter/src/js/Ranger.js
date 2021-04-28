@@ -4,8 +4,8 @@ import createHtml from './createHtml';
 export default class Ranger {
     constructor(parent, id, name, ed, currentValue, max) {
         this.createRanger(parent, id, name, currentValue, max, ed);
-            this.value = 0;
-            this.ed = ed;
+        this.value = 0;
+        this.ed = ed;
     }
 
     createRanger(parent, id, name, currentValue, max, ed) {
