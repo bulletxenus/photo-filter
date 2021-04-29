@@ -28,6 +28,13 @@ export default class Photo {
 
     renderPicture(string) {
         setTimeout(() => {
+            if (this.photo.width < this.photo.height) {
+                this.canvas.style.width = 'auto';
+                this.canvas.style.height = '100%'
+            } else {
+                this.canvas.style.width = '100%';
+                this.canvas.style.height = 'auto';
+            }
             this.canvas.width = this.photo.width;
             this.canvas.height = this.photo.height;
             this.ctx.filter = string;
