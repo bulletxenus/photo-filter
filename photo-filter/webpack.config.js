@@ -49,7 +49,7 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.png$/,
+                test: /\.(png|jpg|jpeg)$/,
                 type: "asset/inline",
                 /*generator: {
                     filename: "assets/[name][ext]",

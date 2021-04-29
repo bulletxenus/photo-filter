@@ -1,4 +1,5 @@
 import createHtml from './createHtml';
+import firstPhoto from '../assets/space.jpg'
 
 
 export default class Photo {
@@ -14,10 +15,11 @@ export default class Photo {
     createCanvas(parent, defaultFilters) {
         this.canvas = createHtml('canvas', 'photo-canvas', parent);
         this.photo = new Image();
-        this.photo.src = './assets/space.jpg'
+        this.photo.src = firstPhoto
         this.photo.crossOrigin = 'anonymous';
 
         this.photo.onload = () => {
+            this.setCanvasSize();
             this.canvas.width = `${this.photo.width}`;
             this.canvas.height = `${this.photo.height}`;
             this.ctx = this.canvas.getContext('2d');
@@ -28,18 +30,26 @@ export default class Photo {
 
     renderPicture(string) {
         setTimeout(() => {
-            if (this.photo.width < this.photo.height) {
-                this.canvas.style.width = 'auto';
-                this.canvas.style.height = '100%'
-            } else {
-                this.canvas.style.width = '100%';
-                this.canvas.style.height = 'auto';
-            }
+            this.setCanvasSize();
             this.canvas.width = this.photo.width;
             this.canvas.height = this.photo.height;
             this.ctx.filter = string;
             this.ctx.drawImage(this.photo, 0, 0);
         });
+    }
+
+    setCanvasSize() {
+        if (this.photo.width < this.photo.height) {
+            this.parent.style.maxWidth = '665px';
+            this.canvas.style.width = 'auto';
+            this.canvas.style.height = '100%'
+        } else {
+            if (this.photo.width / this.photo.height > 1.4) {
+                this.parent.style.maxWidth = '1000px'
+            } else this.parent.style.maxWidth = '665px'
+            this.canvas.style.width = '100%';
+            this.canvas.style.height = 'auto';
+        }
     }
 
     getPhoto() {
